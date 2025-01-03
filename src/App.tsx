@@ -13,12 +13,12 @@ function App() {
         <NavBar></NavBar>
       </GridItem>
       <Show above="lg">
-        {" "}
+    
         {/*so grid item on ASIDE will showed only in large  screen above="lg" */}
         <GridItem area="aside" bg="gold">
           Aside
         </GridItem>
-      </Show>
+      </Show >
       <GridItem area="main" bg="blue">
         Main
       </GridItem>
