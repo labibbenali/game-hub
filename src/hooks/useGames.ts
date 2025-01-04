@@ -22,10 +22,9 @@ const useGames=()=>{
       const [games, setGames] = useState<Game[]>([]);
       const [error, setError] = useState("");
       const [isLoading,setLoading] = useState(false);
-    
+
       useEffect(() => {
           const controller = new AbortController();
-
           setLoading(true);
         apiClient
           .get<FetchGamesREsponse>("/games",{signal:controller.signal})
