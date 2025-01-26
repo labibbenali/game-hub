@@ -3,15 +3,13 @@ import NavBar from "./components/NavBar";
 import { GameGrid } from "./components/GameGrid";
 import { GenreList } from "./components/GenreList";
 import { useState } from "react";
-import { Genre } from "./hooks/useGenres";
 import { PlatformSelector } from "./components/PlatformSelector";
-import { Platform } from "./hooks/usePlateforms";
 import { SortSelector } from "./components/SortSelector";
 import { GameHeading } from "./components/GameHeading";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number; //genre?: number it's equivalent to genre : number | undefined
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -38,22 +36,22 @@ function App() {
         {/*so grid item on ASIDE will showed only in large  screen above="lg" */}
         <GridItem area="aside" paddingX={4}>
           <GenreList
-            selectedGenre={gameQuery.genre}
+            selectedGenreId={gameQuery.genreId}
             onSelectGenre={(genre) =>
-              setGameQuery({ ...gameQuery, genre: genre })
+              setGameQuery({ ...gameQuery, genreId: genre.id })
             }
           />
         </GridItem>
       </Show>
       <GridItem area="main">
         <Box paddingLeft={2}>
-          <GameHeading  gameQuery={gameQuery} />
-          <Flex  marginBottom={5}>
+          <GameHeading gameQuery={gameQuery} />
+          <Flex marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
-                selectedPlatform={gameQuery.platform}
+                selectedPlatformId={gameQuery.platformId}
                 onSelectPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platform: platform })
+                  setGameQuery({ ...gameQuery, platformId: platform.id})
                 }
               />
             </Box>
