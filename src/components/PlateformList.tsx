@@ -12,7 +12,7 @@ import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
 
 import { IconType } from "react-icons/lib";
-import { Platform } from "../hooks/usePlateforms";
+import { Platform } from "../entities/Platform";
 
 interface Props {
   platforms: Platform[];
