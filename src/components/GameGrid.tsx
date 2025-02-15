@@ -25,7 +25,9 @@ export const GameGrid = () => {
     <Box>
       <InfiniteScroll
         dataLength={fetchedGameCount}
-        hasMore={!!hasNextPage}
+        hasMore={!!hasNextPage} //Le double point d'exclamation !! est un idiome JavaScript pour convertir une valeur en booléen1.  
+        //Si hasNextPage est une valeur truthy (comme un objet, un nombre non nul, ou true), !!hasNextPage sera true.    
+        //Si hasNextPage est une valeur falsy (comme null, undefined, 0, ou false), !!hasNextPage sera false.
         next={() => fetchNextPage()}
         loader={<Spinner />}
       >
