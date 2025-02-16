@@ -12,7 +12,6 @@ export const GameDetailPage = () => {
 
   if (isLoading) return <Spinner />;
   if (error || !game) throw error;
-  console.log("Id : ", game.id);
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
       <GridItem>
