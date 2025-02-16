@@ -1,5 +1,5 @@
 import useGenres from "./useGenres";
-import usePlatform from "./usePlatform"
+
 
 const useGenre=(id?:number)=>{
     const { data: genres } = useGenres();
@@ -7,4 +7,4 @@ const useGenre=(id?:number)=>{
 
 }
 
-export default usePlatform;
+export default useGenre;
