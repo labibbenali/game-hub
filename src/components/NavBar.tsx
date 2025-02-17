@@ -1,18 +1,27 @@
-import { HStack, Image, Spacer, Text, useStatStyles } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import { ColorModeSwitch } from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
-import { useState } from "react";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
+import { useNavigate } from "react-router-dom";
 
-const NavBar = ({onSearch}:Props) => {
+const NavBar = () => {
+  const navigate = useNavigate();
+  const handleImageClick = () => {
+    navigate("/"); 
+  };
+
   return (
     <HStack padding="10px">
-      <Image src={logo} padding="4px" borderRadius="10px" boxSize="50px" />
-      <SearchInput onSearch={(searchText)=>onSearch(searchText)} />
+      <Image
+        src={logo}
+        onClick={handleImageClick}
+        padding="4px"
+        borderRadius="10px"
+        boxSize="50px"
+        cursor="pointer"
+      />
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   );
